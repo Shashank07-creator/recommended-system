@@ -1,0 +1,25 @@
+<% include ./partials/header %>
+
+<div class="main">
+  <div class="container">
+    <div class="movie-list">
+      <% movies.forEach(function(movie){ %>
+        <div class="movie">
+          <div class="row">
+            <div class="col-md">
+                <img class="movie-img" src="<%= movie.cover_img %>" alt="Image Not Found">
+            </div>
+            <div class="col-md">
+              <h2><%= movie.title %></h2>
+              <br>
+              <br>
+              <a class="btn btn-success" href="/movie/<%= movie.title %>">Show More</a>
+            </div>
+          </div>
+        </div>
+      <% }); %>
+    </div>
+  </div>
+</div>
+
+<% include ./partials/footer %>

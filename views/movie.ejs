@@ -1,0 +1,46 @@
+<% include ./partials/header %>
+
+<style>
+  .bkgrd {
+    background: url('<%= movie.Poster %>');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    height: 200%;
+    width: 100%;
+  }
+  .mov {
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0, 0.4); /* Black w/opacity/see-through */
+    color: white;
+    font-weight: bold;
+    position: absolute;
+    top: 62%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 2;
+    width: 80%;
+    padding: 20px;
+    text-align: left;
+  }
+</style>
+<div class="main bkgrd"></div>
+
+
+<div class="mov row">
+  <div class="col-md">
+    <center>
+    <img src="<%= movie.Poster %>" alt="Image Not Found">
+    </center>
+  </div>
+  <div class="col-md">
+    <h2><%= movie.Title %></h2><br>
+    <div class="movie-details" style="text-align: left;">
+      <b>Plot: </b><%= movie.Plot %><br><br>
+      <b>Cast: </b><%= movie.Actors %><br><br>
+      <b>IMDB Rating: </b><%= movie.imdbRating %><br><br>
+      <b>Runtime: </b><%= movie.Runtime %><br><br>
+    </div>
+  </div>
+</div>
+<% include ./partials/footer %>

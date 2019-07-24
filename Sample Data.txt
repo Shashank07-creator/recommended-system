@@ -1,0 +1,21 @@
+----------Movie------------
+movie = {
+  title: "Avengers: Infinity War",
+  cover_img: "https://m.media-amazon.com/images/M/MV5BMjMxNjY2MDU1OV5BMl5BanBnXkFtZTgwNzY1MTUwNTM@._V1_.jpg",
+  link: "https://www.youtube.com/watch?v=6ZfuNTqbHE8",
+  plot: "The Avengers must stop Thanos and his army from acquiring all the infinity stones. But the mad Titan is prepared to go to any lengths in order to do what he thinks is necessary."
+}
+
+movie = {
+  title: "Avatar",
+  cover_img: "http://www.gstatic.com/tv/thumb/v22vodart/3542039/p3542039_v_v8_ac.jpg",
+  link: "https://www.youtube.com/watch?v=5PSNL1qE6VY",
+  plot: "Jake, a paraplegic marine, replaces his brother on the Na'vi inhabited Pandora for a corporate mission. He is accepted by the natives as one of their own but he must decide where his loyalties lie."
+}
+
+Movie.create(movie, function(err, newMovie){
+  if (err)
+    console.log(err);
+  else
+    console.log(newMovie);
+});
