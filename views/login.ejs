@@ -1,0 +1,19 @@
+<% include ./partials/header %>
+<br><br><br>
+<div class="container">
+  <div class="">
+    <center><h1 class="frm-head">Login</h1></center>
+    <div style="width: 30%; margin: 25px auto;">
+      <form class="box" action="/login" method="post">
+          <input type="text" name="username" placeholder="Username" required>
+          <input  type="password" name="password" placeholder="Password" required>
+          <input type="submit" value="Login">
+          <br>
+          New user? <a href="/register">Sign Up</a>
+      </form>
+    </div>
+  </div>
+</div>
+<br>
+
+<% include ./partials/footer %>
