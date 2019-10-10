@@ -1,8 +1,15 @@
 <% include ./partials/header %>
 
 <div class="main profile">
+  <% if (!currentUser.photo) { %>
+  <div class="no-profile">
+    <img src="https://www.cheatsheet.com/wp-content/uploads/2019/06/RDJ-Tony-Stark.jpg" alt="">
+  </div>
+  <% } %>
   <h2><%= currentUser.username %></h2>
   <h3><%= currentUser.email %></h3>
+  <br>
+  <%= currentUser._id %>
 </div>
 
 <% include ./partials/footer %>

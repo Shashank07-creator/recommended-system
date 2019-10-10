@@ -1,8 +1,8 @@
 <% include ./partials/header %>
-
+<title><%= movie.Title %> | MovieMania</title>
 <style>
   .bkgrd {
-    background: url('<%= movie.Poster %>');
+    traansform: scale(0.9);
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
@@ -11,12 +11,12 @@
   }
   .mov {
     background-color: rgb(0,0,0); /* Fallback color */
-    background-color: rgba(0,0,0, 0.4); /* Black w/opacity/see-through */
+    background-color: rgba(0,0,0,0.8); /* Black w/opacity/see-through */
     color: white;
-    font-weight: bold;
-    position: absolute;
-    top: 62%;
+    font-family: 'Be Vietnam', sans-serif;
+    position: relative;
     left: 50%;
+    top: 251px;
     transform: translate(-50%, -50%);
     z-index: 2;
     width: 80%;
@@ -24,9 +24,22 @@
     text-align: left;
   }
 </style>
-<div class="main bkgrd"></div>
+
+<br>
+<% if(currentUser) { %>
+  <form class="" action="/addtohistory/<%= currentUser._id %>/<%= movie.Title %>" method="post" style="position:absolute; right: 10px;">
+    <button class="btn-history" type="submit" name="button">Add to Watch History</button>
+  </form><br><br><br>
+<% } %>
+<div class="bkgrd container-fluid">
+    <iframe width="100%" height="100%" src="https://www.youtube.com/embed/<%= trailer %>?controls=0" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"></iframe>
+</div>
 <hr><br><br>
 
+<p><center>
+  <h4 style="letter-spacing: 16px; text-transform: uppercase; font-size: 42px; color: white; background-color: black; border-radius: 5px;"><%= movie.Title %></h4>
+
+</p></center>
 <div class="mov row">
   <div class="col-md">
     <center>
@@ -34,28 +47,56 @@
     </center>
   </div>
   <div class="col-md">
-    <h2><%= movie.Title %></h2><br><br>
     <div class="movie-details" style="text-align: left;">
       <b>Plot: </b><%= movie.Plot %><br><br>
       <b>Cast: </b><%= movie.Actors %><br><br>
       <b>IMDB Rating: </b><%= movie.imdbRating %><br><br>
       <b>Runtime: </b><%= movie.Runtime %><br><br>
+      <b>Year: </b><%= movie.Year %><br><br>
+      <b>Rated: </b><%= movie.Rated %><br><br>
+      <b>Release: </b><%= movie.Released %><br><br>
+      <b>Genre: </b><%= movie.Genre %><br><br>
     </div>
   </div>
 </div>
 <div class="container">
-  <div class="row">
-    <div class="col-md-7">
-      <h3>Trailer</h3>
-      <iframe width="560" height="315" src="https://www.youtube.com/embed/<%= trailer %>" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-    </div>
-    <div class="col-md-5">
-      <h3>Links to watch the movie</h3><br>
-      <ul>
-        <li><h4>Amazon Prime:</h4><a href="#">Amazon link</a></li><br>
-        <li><h4>Netflix:</h4><a href="#">Netflix link</a></li><br>
-        <li><h4>Hotstar:</h4><a href="#">Hotstar link</a></li><br>
-      </ul>
+  <br><br>
+  <div style="color: white;">
+    <h3 style="letter-spacing: 8px; text-transform: uppercase;"><center>Links to watch the movie</center></h3><br>
+    <ul>
+      <div class="row">
+        <li class="links-external col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12">
+          <img src="https://assets.pcmag.com/media/images/508402-amazon-prime-video.png?width=810&height=456" alt="Image of Amazon Prime">
+          <h4 style="font-family: 'Josefin Sans', sans-serif;">Amazon Prime:</h4><a href="#" style="font-family: 'Josefin Sans', sans-serif;">Amazon link</a>
+        </li><br>
+
+        <li class="links-external col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12">
+          <img src="https://www.wthr.com/sites/default/files/styles/article_image/public/2019/04/11/netflix_logo.jpg?itok=smaoT4LI" alt="Image of Netflix">
+          <h4 style="font-family: 'Josefin Sans', sans-serif;">Netflix:</h4><a href="#" style="font-family: 'Josefin Sans', sans-serif;">Netflix link</a>
+        </li><br>
+
+        <li class="links-external col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12">
+          <img src="https://secure-media.hotstar.com/social/hotstar.jpg" alt="Image of Hotstar">
+          <h4 style="font-family: 'Josefin Sans', sans-serif;">Hotstar:</h4><a href="#" style="font-family: 'Josefin Sans', sans-serif;">Hotstar link</a>
+        </li><br>
+      </div>
+
+    </ul>
+    <h3 style="letter-spacing: 8px; text-transform: uppercase;"><center>Comments</center></h3><br>
+    <div class="comments">
+      <br>
+      User comments on the movie: <b><%= movie.Title %></b><br><br><br>
+      <% if (currentUser) { %>
+        <div style="" class="">
+          <form class="" action="/comment/<%= movie.Title %>" method="post">
+            <textarea name="comment" rows="5" cols="80" placeholder="Enter your review for the movie <%= movie.Title %>"></textarea><br>
+            <button class="btn btn-outline-success" type="submit" name="button">Add Comment</button>
+          </form>
+        </div>
+      <% } %>
+      <% if (!currentUser) { %>
+        <a href="/login">Sign In/Up</a> to enter a comment
+      <% } %>
     </div>
   </div>
 </div>

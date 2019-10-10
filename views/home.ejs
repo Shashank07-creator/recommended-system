@@ -1,5 +1,80 @@
 <% include ./partials/header %>
+<br><br>
+<h4 class="heading"> <center>LATEST MOVIES</center> </h4>
 
-<h1>Home Page</h1>
-<%= currentUser %>
+<div class="slidershow middle">
+
+  <div class="slides">
+    <input type="radio" name="r" id="r1" checked>
+    <input type="radio" name="r" id="r2">
+    <input type="radio" name="r" id="r3">
+    <input type="radio" name="r" id="r4">
+    <input type="radio" name="r" id="r5">
+    <div class="slide s1">
+      <img src="https://lumiere-a.akamaihd.net/v1/images/b_thelionking2019_theatricalrelease_header_18123_ccb617b5.jpeg?region=0,0,2048,640" alt="Image Not Found">
+    </div>
+    <div class="slide">
+      <img src="https://eating4balance.files.wordpress.com/2013/11/sustenance-thor-1.jpg" alt="Image Not Found">
+    </div>
+    <div class="slide">
+      <img src="https://in.bmscdn.com/showcaseimage/eventimage/section-375-11-09-2019-12-18-38-111.jpg" alt="Image Not Found">
+    </div>
+    <div class="slide">
+      <img src="https://akm-img-a-in.tosshub.com/indiatoday/images/story/201811/2.0_2_0_0.jpeg?AYOkJ0Jruj5cIZyAQYHgAhOwR8WjqlBf" alt="Image Not Found">
+    </div>
+    <div class="slide">
+      <img src="https://www.directv.com/content/dam/dtv/directv_entertainment/movies/2019_09/STU-10197_X_Men_Dark_Phoenix_DTVE_Header_dsk_v1.jpg" alt="Image Not Found">
+    </div>
+  </div>
+
+  <div class="navigation">
+    <label for="r1" class="bar"></label>
+    <label for="r2" class="bar"></label>
+    <label for="r3" class="bar"></label>
+    <label for="r4" class="bar"></label>
+    <label for="r5" class="bar"></label>
+  </div>
+</div>
+<br><br><br>
+<h4 class="heading"> <center>RECOMMENDED FOR YOU <br>Movies based on your search and watch history</center> </h4>
+<br><br><br>
+<div class="slidershow middle">
+
+  <div class="slides">
+    <input type="radio" name="r" id="r1" checked>
+    <input type="radio" name="r" id="r2">
+    <input type="radio" name="r" id="r3">
+    <input type="radio" name="r" id="r4">
+    <input type="radio" name="r" id="r5">
+    <div class="slide s1">
+      <img src="https://lumiere-a.akamaihd.net/v1/images/b_thelionking2019_theatricalrelease_header_18123_ccb617b5.jpeg?region=0,0,2048,640" alt="Image Not Found">
+    </div>
+    <div class="slide">
+      <img src="https://eating4balance.files.wordpress.com/2013/11/sustenance-thor-1.jpg" alt="Image Not Found">
+    </div>
+    <div class="slide">
+      <img src="https://in.bmscdn.com/showcaseimage/eventimage/section-375-11-09-2019-12-18-38-111.jpg" alt="Image Not Found">
+    </div>
+    <div class="slide">
+      <img src="https://akm-img-a-in.tosshub.com/indiatoday/images/story/201811/2.0_2_0_0.jpeg?AYOkJ0Jruj5cIZyAQYHgAhOwR8WjqlBf" alt="Image Not Found">
+    </div>
+    <div class="slide">
+      <img src="https://www.directv.com/content/dam/dtv/directv_entertainment/movies/2019_09/STU-10197_X_Men_Dark_Phoenix_DTVE_Header_dsk_v1.jpg" alt="Image Not Found">
+    </div>
+  </div>
+
+  <div class="navigation">
+    <label for="r1" class="bar"></label>
+    <label for="r2" class="bar"></label>
+    <label for="r3" class="bar"></label>
+    <label for="r4" class="bar"></label>
+    <label for="r5" class="bar"></label>
+  </div>
+</div>
+
+<% mov.forEach(function(movie){ %>
+  <%= movie.Title %>
+  <img src="<%=movie.Poster %>" alt="Image Not Found">
+  <% console.log('Here'); %>
+<% })  %>
 <% include ./partials/footer %>

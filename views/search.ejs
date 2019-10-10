@@ -1,0 +1,43 @@
+<% include ./partials/header %>
+
+<div class="container-fluid main">
+  <h4>Showing search results for: <b><%= id %></b></h4>
+  Tip: Hover over a movie to view it's Trailer
+  <br><br>
+
+<div class="row">
+  <% if(movies) { %>
+    <title>Search for <%= id.toUpperCase() %></title>
+    <% /*console.log('Response of movie ' + movies.Response)*/ %>
+    <% (movies.Search).forEach(function(movie){ %>
+      <% if (movie.Poster != "N/A" && (movie.Type == "movie" || movie.Type == "series")) { %>
+        <div class="search-mov col-md-6 col-lg-4 col-sm-6 col-xs-6">
+          <center>
+            <% if (movie.Type == "movie") { %>
+              <a href="/movie/<%= movie.Title %>">
+            <% } %>
+            <% if (movie.Type == "series") { %>
+              <a href="/tv-series/<%= movie.Title %>">
+            <% } %>
+              <%= movie.Title %>
+              <img class="search-img" style="width: 100%; padding:0" src="<%= movie.Poster %>" alt="Image not found">
+            </a>
+          </center>
+        </div>
+        <% } %>
+        <% }) %>
+  <% } %>
+  <% if(!movies) { %>
+    <div style="padding-left: 15px;" class="">
+      <title>No Results Found</title>
+      Sorry no results found. Try entering a different movie or TV series.<br>
+      You can go to our homepage by clicking <a href="/search">here.</a><br>
+      <center>
+        <img src="https://cdn.dribbble.com/users/1883357/screenshots/6016190/search_no_result.png" style="width: 60%; height: 60%;" alt="">
+      </center>
+    </div>
+  <% } %>
+</div>
+
+</div>
+<% include ./partials/footer %>

@@ -1,0 +1,28 @@
+<% include ./partials/header %>
+<title><%= currentUser.username %>'s History</title>
+<div class="main">
+  <span style="float: right;">GMT+05:30 (Indian Standard Time)</span>
+  <h2><b><%= currentUser.username %>'s</b> watch history.</h2>
+  <br><br>
+  <% movies = movies.slice(0).reverse() %>
+  <% if(movies) { %>
+    <% movies.forEach(function(movie) { %>
+      <a href="/movie/<%= movie.split("|")[0] %>" target="_blank">
+        <div class="movie-history">
+          <div class="date" style="float: right;">
+            <span style="color: #72bcd4;">Added on:-</span><%= movie.split("|")[2] %> <%= movie.split("|")[1] %><br>
+            <%= movie.split("|")[3] %>
+          </div>
+          <h3> <%= movie.split("|")[0] %> </h3>
+          <hr>
+        </div>
+      </a>
+      <% }) %>
+  <% } %>
+  <%= console.log(movies) %>
+  <% if(movies.length == 0) { %>
+    You have not added any movies yet. Click <b>Add to watch history</b> when you visit a movie's page.
+  <% } %>
+</div>
+
+<% include ./partials/footer %>
