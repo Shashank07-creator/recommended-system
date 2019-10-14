@@ -8,8 +8,23 @@
   <% } %>
   <h2><%= currentUser.username %></h2>
   <h3><%= currentUser.email %></h3>
+  <br><br><hr style="width: 80%;">
   <br>
-  <%= currentUser._id %>
+  <br>
+  <h2>Details</h2> <br>
+  <h3>You joined Movie Mania on: </h3><%= currentUser.joined.split("|").join(" ") %><br><br><br>
+  <h2>Watch History</h2>
+  <% range = currentUser.history.length < 5 ? currentUser.history.length : 5; %>
+  <% for(i=0; i<range; i++){ %>
+    <a href="/movie/<%= currentUser.history[i].split("|")[0] %>">
+      <div class="movie-history-small"">
+        <%= currentUser.history[i].split("|")[0] %> <br>
+      </div>
+    </a>
+    <% if (i == 4) {break;}%>
+  <% } %>
+  <br>
+  <a href="/user/<%= currentUser._id %>/history" class="btn btn-success" style="color: white;">Full Watch History</a>
 </div>
 
 <% include ./partials/footer %>

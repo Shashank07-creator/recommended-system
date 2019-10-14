@@ -2,6 +2,7 @@
   margin: 0;
   padding: 0;
   font-family: 'Be Vietnam', sans-serif;
+  scroll-behavior: smooth;
 }
 
 a, a:hover, a:visited, a:active {
@@ -21,7 +22,7 @@ a, a:hover, a:visited, a:active {
   color: white;
 }
 
-.movie-history {
+.movie-history, .movie-history-small {
   margin: 15px;
   padding: 10px;
   border-radius: 10px;
@@ -29,7 +30,11 @@ a, a:hover, a:visited, a:active {
   cursor: pointer;
 }
 
-.movie-history:hover{
+.movie-history-small {
+  font-size: 18px;
+}
+
+.movie-history:hover, .movie-history-small:hover{
   background-color: #e3e3e3;
 }
 
@@ -391,7 +396,25 @@ i {
 
 }
 
+.scrolltotop {
+  display: none; /* Hidden by default */
+  position: fixed; /* Fixed/sticky position */
+  bottom: 20px; /* Place the button at the bottom of the page */
+  right: 30px; /* Place the button 30px from the right */
+  z-index: 99; /* Make sure it does not overlap */
+  border: none; /* Remove borders */
+  outline: none; /* Remove outline */
+  background-color: red; /* Set a background color */
+  color: white; /* Text color */
+  cursor: pointer; /* Add a mouse pointer on hover */
+  padding: 15px; /* Some padding */
+  border-radius: 10px; /* Rounded corners */
+  font-size: 18px; /* Increase font size */
+}
 
+.scolltotop:hover {
+  background-color: #555; /* Add a dark-grey background on hover */
+}
 .plus {
   font-size: 14px;
 }

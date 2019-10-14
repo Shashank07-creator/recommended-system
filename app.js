@@ -157,9 +157,16 @@ app.get("/register", function(req, res) {
 });
 
 app.post("/register", function(req, res){
+  var d = Date(Date.now());
+  a = d.toString().split(" ");
+  day = a[2] + " " + a[1] + " " + a[3];
+  time = a[4];
+  joinedDate = day + "|" + a[0] + "|" + time;
+  console.log(joinedDate);
   var newUser = new User({
     username: req.body.username,
-    email: req.body.email
+    email: req.body.email,
+    joined: joinedDate
   });
   if (req.body.repassword != req.body.password){
     req.flash("error", "Password and Re-entered Password must be same");
